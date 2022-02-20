@@ -1,3 +1,13 @@
 from django.contrib import admin
 
-# Register your models here.
+from case.models import Case, Task
+
+
+@admin.register(Case)
+class CaseAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Task)
+class TaskAdmin(admin.ModelAdmin):
+    pass
