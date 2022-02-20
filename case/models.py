@@ -12,14 +12,6 @@ class Case(models.Model):
     def __str__(self):
         return f"{self.start_date.isoformat()}-{self.number}"
 
-    def save(self):
-        # Set unique number, one higher than previous of today
-        if self.number is None:
-            self.number = (
-                Case.objects.all(start_date=self.start_date).aggregate(Max("number"))
-                + 1
-            )
-
 
 class Task(models.Model):
     case = models.ForeignKey(Case, on_delete=models.CASCADE)

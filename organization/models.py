@@ -10,7 +10,7 @@ class Organization(models.Model):
 
 
 class Unit(models.Model):
-    employees = models.ManyToManyField("Employee")
+    employees = models.ManyToManyField("Employee", blank=True)
     name = models.CharField(max_length=50)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
 
